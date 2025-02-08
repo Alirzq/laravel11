@@ -36,6 +36,7 @@ class DepartementController extends Controller
             'departments' => Departement::all()
         ];
 
+        
         if (request()->is('admin/*')) {
             return view('admin.departement_admin', $data);
         }

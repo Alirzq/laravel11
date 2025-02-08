@@ -13,7 +13,16 @@ class Student extends Model
 
     protected $with = ['grade','departement'];
 
-    public function grade() : BelongsTo
+    protected $fillable = [
+        'name',
+        'email',
+        'address',
+        'grade_id',
+        'departement_id',
+        // Tambahkan atribut lain yang diperlukan
+    ];
+
+        public function grade() : BelongsTo
     {
         return $this->belongsTo(Grade::class);
     }
@@ -21,4 +30,5 @@ class Student extends Model
     {
         return $this->belongsTo(Departement::class);
     }
+    //function joun
 }

@@ -11,13 +11,6 @@ class StudentController extends Controller
      */
     public function index()
     {
-        if(request()->is('admin/*')) {
-            return view('admin.student_admin', [
-                'title' => 'Student Management',
-                'students' => Student::with(['grade', 'departement'])->get()
-            ]);
-        }
-
         return view('student', [
             'title' => "Student",
             'students' => Student::all(),

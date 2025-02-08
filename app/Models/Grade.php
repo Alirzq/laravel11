@@ -10,6 +10,14 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Grade extends Model
 {
     use HasFactory;
+
+    protected $with = ['departement'];
+
+    protected $fillable = [
+        'name',
+        'departement_id',
+        // Tambahkan atribut lain yang diperlukan
+    ];
     //mangambil data dari tabel student
     //menggunakan relasi one to many
     //melalui model student
@@ -19,7 +27,7 @@ class Grade extends Model
         return $this->hasMany(student::class);
         //models student
     }
-    public function departement(): BelongsTo
+    public function departement()
     {
         return $this->belongsTo(Departement::class);
     }
